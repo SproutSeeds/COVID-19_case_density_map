@@ -1,7 +1,6 @@
 d3.csv(
   'sample.csv',
   function(d) {
-    console.log(d);
     return {
       provence_state: d.provence_state,
       cases: d.number_of_cases
