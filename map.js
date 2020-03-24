@@ -44,8 +44,8 @@ d3.csv(
       over_800 = '#00261C';
 
     // Loop Through each state and find correct color
-    for (var i = 0; data.length; i++) {
-      //   console.log(data[i].cases > 1000);
+
+    for (let i = 0; i < data.length; i++) {
       let st = d3.select('.' + data[i].provence_state);
 
       if (data[i].cases < 300) {
