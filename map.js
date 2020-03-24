@@ -43,22 +43,20 @@ d3.csv(
       between_700_800 = '#044C29',
       over_800 = '#00261C';
 
-    // Loop Through each state and find correct color
+    for (const state_province of data) {
+      let st = d3.select('.' + state_province.provence_state);
 
-    for (let i = 0; i < data.length; i++) {
-      let st = d3.select('.' + data[i].provence_state);
-
-      if (data[i].cases < 300) {
+      if (state_province.cases < 300) {
         st.style('fill', under300);
-      } else if (data[i].cases >= 300 && data[i].cases < 500) {
+      } else if (state_province.cases >= 300 && state_province.cases < 500) {
         st.style('fill', between_300_400);
-      } else if (data[i].cases >= 500 && data[i].cases < 700) {
+      } else if (state_province.cases >= 500 && state_province.cases < 700) {
         st.style('fill', between_400_500);
-      } else if (data[i].cases >= 700 && data[i].cases < 900) {
+      } else if (state_province.cases >= 700 && state_province.cases < 900) {
         st.style('fill', between_500_600);
-      } else if (data[i].cases >= 900 && data[i].cases < 1100) {
+      } else if (state_province.cases >= 900 && state_province.cases < 1100) {
         st.style('fill', between_600_700);
-      } else if (data[i].cases >= 1100 && data[i].cases < 2000) {
+      } else if (state_province.cases >= 1100 && state_province.cases < 2000) {
         st.style('fill', between_700_800);
       } else {
         st.style('fill', over_800);
