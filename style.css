@@ -1,0 +1,13 @@
+body {
+  margin: auto 0;
+  background-color: black;
+}
+button {
+  align-items: center;
+  justify-content: center;
+  /* margin-left: 50%;
+  margin-top: 20%; */
+}
+.hide {
+  display: none;
+}
