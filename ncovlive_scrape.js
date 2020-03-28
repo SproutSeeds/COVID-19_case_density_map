@@ -26,7 +26,7 @@ function fetchData() {
       return returnCleanBody(headerArray, usa_body_tr);
     })
     .then(function(usa) {
-      console.log(usa);
+      console.log(JSON.stringify(usa));
     });
 }
 function returnCleanHeader(nodeList) {
@@ -72,7 +72,103 @@ function returnCleanBody(headerArray, usa_body_list) {
         .replace(/,/g, '')
     });
   });
+
+  let clean_states = bodyObj.states.filter(
+    state => state.state_name !== 'DistrictofColumbia'
+  );
+  clean_states = clean_states.filter(
+    state => state.state_name !== 'PuertoRico'
+  );
+  clean_states = clean_states.filter(
+    state => state.state_name !== 'DiamondPrincess(repatriated)'
+  );
+  clean_states = clean_states.filter(state => state.state_name !== 'Guam');
+  clean_states = clean_states.filter(
+    state => state.state_name !== 'GrandPrincess'
+  );
+  clean_states = clean_states.filter(
+    state => state.state_name !== 'U.S.VirginIslands'
+  );
+  clean_states = clean_states.filter(
+    state => state.state_name !== 'Wuhan(repatriated)'
+  );
+  clean_states = clean_states.filter(
+    state => state.state_name !== 'AmericanSamoa'
+  );
+  clean_states = clean_states.filter(
+    state => state.state_name !== 'NorthernMarianaIslands'
+  );
+
+  clean_states = addAbbreviationAsProperty(clean_states);
+
+  bodyObj = {
+    states: clean_states
+  };
+
   return bodyObj;
+}
+function addAbbreviationAsProperty(clean_states) {
+  let state_abbrev = [
+    { name: 'Alabama', abbrev: 'AL' },
+    { name: 'Alaska', abbrev: 'AK' },
+    { name: 'Arizona', abbrev: 'AZ' },
+    { name: 'Arkansas', abbrev: 'AR' },
+    { name: 'California', abbrev: 'CA' },
+    { name: 'Colorado', abbrev: 'CO' },
+    { name: 'Connecticut', abbrev: 'CT' },
+    { name: 'Delaware', abbrev: 'DE' },
+    { name: 'Florida', abbrev: 'FL' },
+    { name: 'Georgia', abbrev: 'GA' },
+    { name: 'Hawaii', abbrev: 'HI' },
+    { name: 'Idaho', abbrev: 'ID' },
+    { name: 'Illinois', abbrev: 'IL' },
+    { name: 'Indiana', abbrev: 'IN' },
+    { name: 'Iowa', abbrev: 'IA' },
+    { name: 'Kansas', abbrev: 'KS' },
+    { name: 'Kentucky', abbrev: 'KY' },
+    { name: 'Louisiana', abbrev: 'LA' },
+    { name: 'Maine', abbrev: 'ME' },
+    { name: 'Maryland', abbrev: 'MD' },
+    { name: 'Massachusetts', abbrev: 'MA' },
+    { name: 'Michigan', abbrev: 'MI' },
+    { name: 'Minnesota', abbrev: 'MN' },
+    { name: 'Mississippi', abbrev: 'MS' },
+    { name: 'Missouri', abbrev: 'MO' },
+    { name: 'Montana', abbrev: 'MT' },
+    { name: 'Nebraska', abbrev: 'NE' },
+    { name: 'Nevada', abbrev: 'NV' },
+    { name: 'NewHampshire', abbrev: 'NH' },
+    { name: 'NewJersey', abbrev: 'NJ' },
+    { name: 'NewMexico', abbrev: 'NM' },
+    { name: 'NewYork', abbrev: 'NY' },
+    { name: 'NorthCarolina', abbrev: 'NC' },
+    { name: 'NorthDakota', abbrev: 'ND' },
+    { name: 'Ohio', abbrev: 'OH' },
+    { name: 'Oklahoma', abbrev: 'OK' },
+    { name: 'Oregon', abbrev: 'OR' },
+    { name: 'Pennsylvania', abbrev: 'PA' },
+    { name: 'RhodeIsland', abbrev: 'RI' },
+    { name: 'SouthCarolina', abbrev: 'SC' },
+    { name: 'SouthDakota', abbrev: 'SD' },
+    { name: 'Tennessee', abbrev: 'TN' },
+    { name: 'Texas', abbrev: 'TX' },
+    { name: 'Utah', abbrev: 'UT' },
+    { name: 'Vermont', abbrev: 'VT' },
+    { name: 'Virginia', abbrev: 'VA' },
+    { name: 'Washington', abbrev: 'WA' },
+    { name: 'WestVirginia', abbrev: 'WV' },
+    { name: 'Wisconsin', abbrev: 'WI' },
+    { name: 'Wyoming', abbrev: 'WY' }
+  ];
+
+  clean_states.forEach(function(state, index) {
+    state_abbrev.forEach(function(state_abbrev, index) {
+      if (state.state_name === state_abbrev.name) {
+        state.state_abbreviation = state_abbrev.abbrev;
+      }
+    });
+  });
+  return clean_states;
 }
 
 data_button.addEventListener('click', fetchData);
