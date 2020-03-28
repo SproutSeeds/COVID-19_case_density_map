@@ -72,7 +72,7 @@ function main_csv(csv_data) {
 }
 
 // main('test.json');
-// main('sample.csv');
+main_csv('sample.csv');
 
 function main_json(json_data) {
   d3.json(
