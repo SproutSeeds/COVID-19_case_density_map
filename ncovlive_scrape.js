@@ -26,6 +26,7 @@ function fetchData() {
       return returnCleanBody(headerArray, usa_body_tr);
     })
     .then(function(usa) {
+      console.log(usa);
       console.log(JSON.stringify(usa));
     });
 }
