@@ -1,5 +1,3 @@
-// let data_button = document.getElementById('pull_data');
-
 function fetchData() {
   fetch('https://cors-anywhere.herokuapp.com/http://ncov2019.live/data')
     .then(function(response) {
@@ -28,8 +26,9 @@ function fetchData() {
     .then(function(usa_body_obj) {
       // let usa_body_csv = makeCSV(usa_body_obj);
 
-      // return usa_body_obj;
       let usa_total = usa_body_obj.states.shift();
+
+      // return usa_body_obj.states;
       main(usa_body_obj.states);
     });
 }
@@ -113,56 +112,56 @@ function returnCleanBody(headerArray, usa_body_list) {
 }
 function addAbbreviationAsProperty(clean_states) {
   let state_abbrev = [
-    { name: 'Alabama', abbrev: 'AL' },
-    { name: 'Alaska', abbrev: 'AK' },
-    { name: 'Arizona', abbrev: 'AZ' },
-    { name: 'Arkansas', abbrev: 'AR' },
-    { name: 'California', abbrev: 'CA' },
-    { name: 'Colorado', abbrev: 'CO' },
-    { name: 'Connecticut', abbrev: 'CT' },
-    { name: 'Delaware', abbrev: 'DE' },
-    { name: 'Florida', abbrev: 'FL' },
-    { name: 'Georgia', abbrev: 'GA' },
-    { name: 'Hawaii', abbrev: 'HI' },
-    { name: 'Idaho', abbrev: 'ID' },
-    { name: 'Illinois', abbrev: 'IL' },
-    { name: 'Indiana', abbrev: 'IN' },
-    { name: 'Iowa', abbrev: 'IA' },
-    { name: 'Kansas', abbrev: 'KS' },
-    { name: 'Kentucky', abbrev: 'KY' },
-    { name: 'Louisiana', abbrev: 'LA' },
-    { name: 'Maine', abbrev: 'ME' },
-    { name: 'Maryland', abbrev: 'MD' },
-    { name: 'Massachusetts', abbrev: 'MA' },
-    { name: 'Michigan', abbrev: 'MI' },
-    { name: 'Minnesota', abbrev: 'MN' },
-    { name: 'Mississippi', abbrev: 'MS' },
-    { name: 'Missouri', abbrev: 'MO' },
-    { name: 'Montana', abbrev: 'MT' },
-    { name: 'Nebraska', abbrev: 'NE' },
-    { name: 'Nevada', abbrev: 'NV' },
-    { name: 'NewHampshire', abbrev: 'NH' },
-    { name: 'NewJersey', abbrev: 'NJ' },
-    { name: 'NewMexico', abbrev: 'NM' },
-    { name: 'NewYork', abbrev: 'NY' },
-    { name: 'NorthCarolina', abbrev: 'NC' },
-    { name: 'NorthDakota', abbrev: 'ND' },
-    { name: 'Ohio', abbrev: 'OH' },
-    { name: 'Oklahoma', abbrev: 'OK' },
-    { name: 'Oregon', abbrev: 'OR' },
-    { name: 'Pennsylvania', abbrev: 'PA' },
-    { name: 'RhodeIsland', abbrev: 'RI' },
-    { name: 'SouthCarolina', abbrev: 'SC' },
-    { name: 'SouthDakota', abbrev: 'SD' },
-    { name: 'Tennessee', abbrev: 'TN' },
-    { name: 'Texas', abbrev: 'TX' },
-    { name: 'Utah', abbrev: 'UT' },
-    { name: 'Vermont', abbrev: 'VT' },
-    { name: 'Virginia', abbrev: 'VA' },
-    { name: 'Washington', abbrev: 'WA' },
-    { name: 'WestVirginia', abbrev: 'WV' },
-    { name: 'Wisconsin', abbrev: 'WI' },
-    { name: 'Wyoming', abbrev: 'WY' }
+    { name: 'Alabama', abbrev: 'AL', population: 5081440 },
+    { name: 'Alaska', abbrev: 'AK', population: 731550 },
+    { name: 'Arizona', abbrev: 'AZ', population: 7280000 },
+    { name: 'Arkansas', abbrev: 'AR', population: 3020000 },
+    { name: 'California', abbrev: 'CA', population: 40000000 },
+    { name: 'Colorado', abbrev: 'CO', population: 5760000 },
+    { name: 'Connecticut', abbrev: 'CT', population: 3565287 },
+    { name: 'Delaware', abbrev: 'DE', population: 976972 },
+    { name: 'Florida', abbrev: 'FL', population: 21480000 },
+    { name: 'Georgia', abbrev: 'GA', population: 10617423 },
+    { name: 'Hawaii', abbrev: 'HI', population: 1420000 },
+    { name: 'Idaho', abbrev: 'ID', population: 1790000 },
+    { name: 'Illinois', abbrev: 'IL', population: 12670000 },
+    { name: 'Indiana', abbrev: 'IN', population: 6679200 },
+    { name: 'Iowa', abbrev: 'IA', population: 3155070 },
+    { name: 'Kansas', abbrev: 'KS', population: 2934240 },
+    { name: 'Kentucky', abbrev: 'KY', population: 4470000 },
+    { name: 'Louisiana', abbrev: 'LA', population: 4650000 },
+    { name: 'Maine', abbrev: 'ME', population: 1340000 },
+    { name: 'Maryland', abbrev: 'MD', population: 6050000 },
+    { name: 'Massachusetts', abbrev: 'MA', population: 6892503 },
+    { name: 'Michigan', abbrev: 'MI', population: 9986857 },
+    { name: 'Minnesota', abbrev: 'MN', population: 5600000 },
+    { name: 'Mississippi', abbrev: 'MS', population: 2980000 },
+    { name: 'Missouri', abbrev: 'MO', population: 6140000 },
+    { name: 'Montana', abbrev: 'MT', population: 1068778 },
+    { name: 'Nebraska', abbrev: 'NE', population: 1925840 },
+    { name: 'Nevada', abbrev: 'NV', population: 3034400 },
+    { name: 'NewHampshire', abbrev: 'NH', population: 1360000 },
+    { name: 'NewJersey', abbrev: 'NJ', population: 8880000 },
+    { name: 'NewMexico', abbrev: 'NM', population: 2096829 },
+    { name: 'NewYork', abbrev: 'NY', population: 19500000 },
+    { name: 'NorthCarolina', abbrev: 'NC', population: 10490000 },
+    { name: 'NorthDakota', abbrev: 'ND', population: 762062 },
+    { name: 'Ohio', abbrev: 'OH', population: 11690000 },
+    { name: 'Oklahoma', abbrev: 'OK', population: 3978480 },
+    { name: 'Oregon', abbrev: 'OR', population: 4236400 },
+    { name: 'Pennsylvania', abbrev: 'PA', population: 12801989 },
+    { name: 'RhodeIsland', abbrev: 'RI', population: 1060000 },
+    { name: 'SouthCarolina', abbrev: 'SC', population: 5150000 },
+    { name: 'SouthDakota', abbrev: 'SD', population: 880000 },
+    { name: 'Tennessee', abbrev: 'TN', population: 6795240 },
+    { name: 'Texas', abbrev: 'TX', population: 29440000 },
+    { name: 'Utah', abbrev: 'UT', population: 3210000 },
+    { name: 'Vermont', abbrev: 'VT', population: 623989 },
+    { name: 'Virginia', abbrev: 'VA', population: 8540000 },
+    { name: 'Washington', abbrev: 'WA', population: 7546400 },
+    { name: 'WestVirginia', abbrev: 'WV', population: 1792147 },
+    { name: 'Wisconsin', abbrev: 'WI', population: 5820000 },
+    { name: 'Wyoming', abbrev: 'WY', population: 578880 }
   ];
 
   clean_states.forEach(function(state, index) {
@@ -184,6 +183,41 @@ function makeCSV(bodyObj) {
   return usa_body_csv_string;
 }
 
-// data_button.addEventListener('click', fetchData);
+// function fetch_count_check_decrement() {
+//   localStorage.removeItem('states_data');
+//   let states_data = localStorage.getItem('states_data');
+
+//   if (states_data === 'undefined' || states_data === null) {
+//     console.log('we made it to first if block');
+
+//     localStorage.setItem('time_of_fetch', JSON.stringify(Date.now()));
+//     let time_of_fetch = localStorage.getItem('time_of_fetch');
+
+//     localStorage.setItem('states_data', JSON.stringify(fetchData()));
+//     let states_data = localStorage.getItem('states_data');
+
+//     console.log(states_data);
+//     console.log(time_of_fetch);
+
+//     main(states_data);
+//   } else if (
+//     states_data !== 'undefined' &&
+//     Date.now() - localStorage.getItem('time_of_fetch') > 60000
+//   ) {
+//     console.log('we made it to else if block');
+
+//     localStorage.setItem('states_data', JSON.stringify(fetchData()));
+//     states_data = localStorage.getItem('states_data');
+//     console.log(states_data);
+//     main(states_data);
+//   } else {
+//     console.log('we made it to else block');
+//     console.log(states_data);
+
+//     main(states_data);
+//   }
+// }
+
+// fetch_count_check_decrement();
 
 fetchData();
