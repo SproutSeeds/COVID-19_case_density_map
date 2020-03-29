@@ -8,6 +8,31 @@ button {
   /* margin-left: 50%;
   margin-top: 20%; */
 }
+h2 {
+  text-decoration: underline;
+  font-size: 1.7em;
+}
+
 .hide {
   display: none;
+}
+.hoverinfo {
+  font-family: serif;
+}
+
+#case-number {
+  color: red;
+  font-size: 1.5em;
+}
+#percent-number {
+  color: purple;
+  font-size: 1.5em;
+}
+#case-title {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+#percent-title {
+  font-weight: bold;
+  font-size: 1.2em;
 }

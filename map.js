@@ -11,12 +11,17 @@ function main(data) {
         }
         return [
           '<div class="hoverinfo"><strong>',
-          geo.properties.name,
-          ': ' +
-            '<p style="color:red">' +
+          '<h2>' + geo.properties.name + '</h2>',
+          '<p id="case-title">COVID-19 Cases:</p>' +
+            '<p id="case-number">' +
             data.find(findState).confirmed_cases +
             '</p>' +
-            ' COVID-19 Cases',
+            '<p id="percent-title">Percent of Population: ' +
+            '<p id="percent-number">' +
+            data.find(findState).percent_of_pop_effected.toFixed(3) +
+            '%' +
+            '</p>' +
+            '</p>',
           '</strong></div>'
         ].join('');
       }
@@ -24,42 +29,42 @@ function main(data) {
   });
 
   // color list
-  const under300 = '#97ED8A',
-    between_300_400 = '#8FE039',
-    between_400_500 = '#45BF55',
-    between_500_600 = '#1F9C10',
-    between_600_700 = '#167F39',
-    between_700_800 = '#044C29',
-    over_800 = '#00261C';
+  const under300 = '#FFE5E5',
+    between_300_400 = '#FFCCCC',
+    between_400_500 = '#FFB2B2',
+    between_500_600 = '#FF7F7F',
+    between_600_700 = '#FF6565',
+    between_700_800 = '#FF4C4C',
+    over_800 = '#FF3232';
 
   for (const state_provence of data) {
     let st = d3.select('.' + state_provence.state_abbreviation);
 
-    if (state_provence.confirmed_cases < 300) {
+    if (state_provence.percent_of_pop_effected < 0.01) {
       st.style('fill', under300);
     } else if (
-      state_provence.confirmed_cases >= 300 &&
-      state_provence.confirmed_cases < 500
+      state_provence.percent_of_pop_effected >= 0.01 &&
+      state_provence.percent_of_pop_effected < 0.03
     ) {
       st.style('fill', between_300_400);
     } else if (
-      state_provence.confirmed_cases >= 500 &&
-      state_provence.confirmed_cases < 700
+      state_provence.percent_of_pop_effected >= 0.03 &&
+      state_provence.percent_of_pop_effected < 0.05
     ) {
       st.style('fill', between_400_500);
     } else if (
-      state_provence.confirmed_cases >= 700 &&
-      state_provence.confirmed_cases < 900
+      state_provence.percent_of_pop_effected >= 0.05 &&
+      state_provence.percent_of_pop_effected < 0.08
     ) {
       st.style('fill', between_500_600);
     } else if (
-      state_provence.confirmed_cases >= 900 &&
-      state_provence.confirmed_cases < 1100
+      state_provence.percent_of_pop_effected >= 0.08 &&
+      state_provence.percent_of_pop_effected < 0.11
     ) {
       st.style('fill', between_600_700);
     } else if (
-      state_provence.confirmed_cases >= 1100 &&
-      state_provence.confirmed_cases < 2000
+      state_provence.percent_of_pop_effected >= 0.11 &&
+      state_provence.percent_of_pop_effected < 0.2
     ) {
       st.style('fill', between_700_800);
     } else {

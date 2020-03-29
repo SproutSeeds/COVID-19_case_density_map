@@ -167,7 +167,13 @@ function addAbbreviationAsProperty(clean_states) {
   clean_states.forEach(function(state, index) {
     state_abbrev.forEach(function(state_abbrev, index) {
       if (state.state_name === state_abbrev.name) {
+        let percent_of_pop_effected = calculate_percent_of_pop_effected(
+          state,
+          state_abbrev
+        );
         state.state_abbreviation = state_abbrev.abbrev;
+        state.population = state_abbrev.population;
+        state.percent_of_pop_effected = percent_of_pop_effected;
       }
     });
   });
@@ -181,6 +187,11 @@ function makeCSV(bodyObj) {
     }
   });
   return usa_body_csv_string;
+}
+function calculate_percent_of_pop_effected(state, state_abbrev) {
+  let percent_of_pop_effected =
+    (state.confirmed_cases / state_abbrev.population) * 100;
+  return percent_of_pop_effected;
 }
 
 // function fetch_count_check_decrement() {
