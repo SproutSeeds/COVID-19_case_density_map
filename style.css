@@ -10,7 +10,7 @@ button {
 }
 h2 {
   text-decoration: underline;
-  font-size: 1.7em;
+  font-size: 1.3em;
 }
 
 .hide {
@@ -20,19 +20,33 @@ h2 {
   font-family: serif;
 }
 
+@media only screen and (min-width: 1200px) {
+  /* #mapContainer {
+    max-width: 60%;
+    max-height: 60%;
+    margin: 0 auto;
+  } */
+}
+
+#mapContainer {
+  max-width: 70%;
+  max-height: 70%;
+  margin: -10% 0% 0% 16.5%;
+  padding: 0 0.1vh 0 0.1vh;
+}
 #case-number {
   color: red;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 #percent-number {
   color: purple;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 #case-title {
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 #percent-title {
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1em;
 }

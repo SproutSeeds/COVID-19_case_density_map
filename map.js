@@ -16,7 +16,7 @@ function main(data) {
             '<p id="case-number">' +
             data.find(findState).confirmed_cases +
             '</p>' +
-            '<p id="percent-title">Percent of Population: ' +
+            '<p id="percent-title">% of State Population: ' +
             '<p id="percent-number">' +
             data.find(findState).percent_of_pop_effected.toFixed(3) +
             '%' +

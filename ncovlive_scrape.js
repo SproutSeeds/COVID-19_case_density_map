@@ -194,41 +194,4 @@ function calculate_percent_of_pop_effected(state, state_abbrev) {
   return percent_of_pop_effected;
 }
 
-// function fetch_count_check_decrement() {
-//   localStorage.removeItem('states_data');
-//   let states_data = localStorage.getItem('states_data');
-
-//   if (states_data === 'undefined' || states_data === null) {
-//     console.log('we made it to first if block');
-
-//     localStorage.setItem('time_of_fetch', JSON.stringify(Date.now()));
-//     let time_of_fetch = localStorage.getItem('time_of_fetch');
-
-//     localStorage.setItem('states_data', JSON.stringify(fetchData()));
-//     let states_data = localStorage.getItem('states_data');
-
-//     console.log(states_data);
-//     console.log(time_of_fetch);
-
-//     main(states_data);
-//   } else if (
-//     states_data !== 'undefined' &&
-//     Date.now() - localStorage.getItem('time_of_fetch') > 60000
-//   ) {
-//     console.log('we made it to else if block');
-
-//     localStorage.setItem('states_data', JSON.stringify(fetchData()));
-//     states_data = localStorage.getItem('states_data');
-//     console.log(states_data);
-//     main(states_data);
-//   } else {
-//     console.log('we made it to else block');
-//     console.log(states_data);
-
-//     main(states_data);
-//   }
-// }
-
-// fetch_count_check_decrement();
-
 fetchData();
