@@ -1,4 +1,4 @@
-let data_button = document.getElementById('pull_data');
+// let data_button = document.getElementById('pull_data');
 
 function fetchData() {
   fetch('https://cors-anywhere.herokuapp.com/http://ncov2019.live/data')
@@ -25,9 +25,12 @@ function fetchData() {
       // Clean Body Object
       return returnCleanBody(headerArray, usa_body_tr);
     })
-    .then(function(usa) {
-      console.log(usa);
-      console.log(JSON.stringify(usa));
+    .then(function(usa_body_obj) {
+      // let usa_body_csv = makeCSV(usa_body_obj);
+
+      // return usa_body_obj;
+      let usa_total = usa_body_obj.states.shift();
+      main(usa_body_obj.states);
     });
 }
 function returnCleanHeader(nodeList) {
@@ -171,5 +174,16 @@ function addAbbreviationAsProperty(clean_states) {
   });
   return clean_states;
 }
+function makeCSV(bodyObj) {
+  let usa_body_csv_string = 'state,num_of_cases';
+  bodyObj.states.forEach(function(state, index) {
+    if (state.state_abbreviation !== undefined) {
+      usa_body_csv_string += `\n${state.state_abbreviation},${state.confirmed_cases}`;
+    }
+  });
+  return usa_body_csv_string;
+}
 
-data_button.addEventListener('click', fetchData);
+// data_button.addEventListener('click', fetchData);
+
+fetchData();
