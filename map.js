@@ -1,5 +1,4 @@
 function main(data) {
-  console.log(data);
   const map = new Datamap({
     scope: 'usa',
     element: document.getElementById('mapContainer'),
