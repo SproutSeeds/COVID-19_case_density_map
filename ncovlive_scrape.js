@@ -8,8 +8,8 @@ function fetchData() {
 
       //DOM Element Selection
       let document = parser.parseFromString(html, 'text/html');
-      let usa_container = document.getElementById('container_USA');
-      let usa_sortable_table = document.getElementById('sortable_table_USA');
+      let usa_container = document.getElementById('container_usa');
+      let usa_sortable_table = document.getElementById('sortable_table_usa');
       let usa_table_HEADER = usa_sortable_table.querySelector('thead');
       let usa_table_BODY = usa_sortable_table.querySelector('tbody');
       // HEADER elements
@@ -24,11 +24,9 @@ function fetchData() {
       return returnCleanBody(headerArray, usa_body_tr);
     })
     .then(function(usa_body_obj) {
-      // let usa_body_csv = makeCSV(usa_body_obj);
-
+      // UNCOMMENT BELOW
       let usa_total = usa_body_obj.states.shift();
 
-      // return usa_body_obj.states;
       main(usa_body_obj.states);
     });
 }
