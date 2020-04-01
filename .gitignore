@@ -1,3 +1,5 @@
 node_modules
 archived
 sample_data
+referenceFile.js
+test_indexed_DB.js
