@@ -27,7 +27,10 @@ function fetchData() {
       // UNCOMMENT BELOW
       let usa_total = usa_body_obj.states.shift();
 
-      main(usa_body_obj.states);
+      localStorage.setItem("state_data", JSON.stringify(usa_body_obj.states));
+      localStorage.setItem("time", Date.now());
+      //   console.log(usa_body_obj.states);
+      //   main(usa_body_obj.states);
     });
 }
 function returnCleanHeader(nodeList) {
@@ -177,19 +180,9 @@ function addAbbreviationAsProperty(clean_states) {
   });
   return clean_states;
 }
-function makeCSV(bodyObj) {
-  let usa_body_csv_string = "state,num_of_cases";
-  bodyObj.states.forEach(function(state, index) {
-    if (state.state_abbreviation !== undefined) {
-      usa_body_csv_string += `\n${state.state_abbreviation},${state.confirmed_cases}`;
-    }
-  });
-  return usa_body_csv_string;
-}
+
 function calculate_percent_of_pop_effected(state, state_abbrev) {
   let percent_of_pop_effected =
     (state.confirmed_cases / state_abbrev.population) * 100;
   return percent_of_pop_effected;
 }
-
-fetchData();
