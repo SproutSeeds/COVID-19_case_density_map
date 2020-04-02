@@ -21,7 +21,7 @@ li {
   display: none;
 }
 .hoverinfo {
-  font-family: serif;
+  font-family: "calibri", serif;
 }
 
 #mapContainer {
@@ -49,6 +49,7 @@ li {
 
 /* Colors for legend */
 #legend {
+  font-family: calibri, serif;
   margin: -15vw 0vw 0vw 0vw;
   padding: 50px;
   align-items: center;
