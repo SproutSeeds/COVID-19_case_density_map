@@ -12,20 +12,16 @@ h2 {
   text-decoration: underline;
   font-size: 1.3em;
 }
+li {
+  color: aliceblue;
+  display: block;
+}
 
 .hide {
   display: none;
 }
 .hoverinfo {
   font-family: serif;
-}
-
-@media only screen and (min-width: 1200px) {
-  /* #mapContainer {
-    max-width: 60%;
-    max-height: 60%;
-    margin: 0 auto;
-  } */
 }
 
 #mapContainer {
@@ -49,4 +45,65 @@ h2 {
 #percent-title {
   font-weight: bold;
   font-size: 1em;
+}
+
+/* Colors for legend */
+#legend {
+  margin: -15vw 0vw 0vw 0vw;
+  padding: 50px;
+  align-items: center;
+  justify-content: center;
+}
+#legend_header {
+  color: antiquewhite;
+  font-weight: bold;
+}
+#color_0 {
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  max-width: 150px;
+  background-color: #ffe5e5;
+}
+#color_1 {
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  max-width: 150px;
+  background-color: #ffcccc;
+}
+#color_2 {
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  max-width: 150px;
+  background-color: #ffb2b2;
+}
+#color_3 {
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  max-width: 150px;
+  background-color: #ff7f7f;
+}
+#color_4 {
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  max-width: 150px;
+  background-color: #ff6565;
+}
+#color_5 {
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  max-width: 150px;
+  background-color: #ff4c4c;
+}
+#color_6 {
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  max-width: 150px;
+  background-color: #ff3232;
 }
