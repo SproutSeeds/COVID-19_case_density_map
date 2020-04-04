@@ -5,7 +5,7 @@ function map_main(data) {
     responsive: true,
     geographyConfig: {
       highlightOnHover: true,
-      popupTemplate: function(geo) {
+      popupTemplate: function (geo) {
         function findState(provence_state) {
           return provence_state.state_abbreviation === geo.id;
         }
@@ -19,13 +19,12 @@ function map_main(data) {
             '<p id="percent-title">% of State Population: ' +
             '<p id="percent-number">' +
             data.find(findState).percent_of_pop_effected.toFixed(3) +
-            "%" +
             "</p>" +
             "</p>",
-          "</strong></div>"
+          "</strong></div>",
         ].join("");
-      }
-    }
+      },
+    },
   });
 
   // color list
@@ -72,7 +71,7 @@ function map_main(data) {
     }
   }
 
-  d3.select(window).on("resize", function() {
+  d3.select(window).on("resize", function () {
     map.resize();
   });
 }
