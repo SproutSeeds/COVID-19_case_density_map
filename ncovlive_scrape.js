@@ -9,7 +9,7 @@ function fetchData() {
       //DOM Element Selection
       let document = parser.parseFromString(html, "text/html");
       let usa_container = document.getElementById("container_usa");
-      let usa_sortable_table = document.getElementById("sortable_table_usa");
+      let usa_sortable_table = document.getElementById("sortable_table_unitedstates");
       let usa_table_HEADER = usa_sortable_table.querySelector("thead");
       let usa_table_BODY = usa_sortable_table.querySelector("tbody");
       // HEADER elements
