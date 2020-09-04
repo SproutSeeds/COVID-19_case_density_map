@@ -19,6 +19,6 @@
   "homepage": "https://github.com/SproutSeeds/COVID-19_case_density_map#readme",
   "dependencies": {
     "node-fetch": "^2.6.0",
-    "papaparse": "^5.1.1"
+    "papaparse": "^5.2.0"
   }
 }
