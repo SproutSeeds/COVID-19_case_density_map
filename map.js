@@ -39,31 +39,31 @@ function map_main(data) {
   for (const state_provence of data) {
     let st = d3.select("." + state_provence.state_abbreviation);
 
-    if (state_provence.percent_of_pop_effected < 0.01) {
+    if (state_provence.percent_of_pop_effected < 0.1) {
       st.style("fill", under300);
     } else if (
-      state_provence.percent_of_pop_effected >= 0.01 &&
-      state_provence.percent_of_pop_effected < 0.03
+      state_provence.percent_of_pop_effected >= 0.1 &&
+      state_provence.percent_of_pop_effected < 0.3
     ) {
       st.style("fill", between_300_400);
     } else if (
-      state_provence.percent_of_pop_effected >= 0.03 &&
-      state_provence.percent_of_pop_effected < 0.05
+      state_provence.percent_of_pop_effected >= 0.3 &&
+      state_provence.percent_of_pop_effected < 0.5
     ) {
       st.style("fill", between_400_500);
     } else if (
-      state_provence.percent_of_pop_effected >= 0.05 &&
-      state_provence.percent_of_pop_effected < 0.08
+      state_provence.percent_of_pop_effected >= 0.5 &&
+      state_provence.percent_of_pop_effected < 0.8
     ) {
       st.style("fill", between_500_600);
     } else if (
-      state_provence.percent_of_pop_effected >= 0.08 &&
-      state_provence.percent_of_pop_effected < 0.11
+      state_provence.percent_of_pop_effected >= 0.8 &&
+      state_provence.percent_of_pop_effected < 1.1
     ) {
       st.style("fill", between_600_700);
     } else if (
-      state_provence.percent_of_pop_effected >= 0.11 &&
-      state_provence.percent_of_pop_effected < 0.2
+      state_provence.percent_of_pop_effected >= 1.1 &&
+      state_provence.percent_of_pop_effected < 2
     ) {
       st.style("fill", between_700_800);
     } else {
